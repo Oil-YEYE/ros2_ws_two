@@ -1,0 +1,13 @@
+<launch>
+    <let name="arm_path" value="$(find-pkg-share arm)/urdf/arm.urdf.xacro" />
+    <let name="rviz_config_path" value="$(find-pkg-share arm)/rviz/urdf_config.rviz" />
+
+    <node pkg="robot_state_publisher" exec="robot_state_publisher" output="screen" >
+        <param name="robot_description" value="$(command 'xacro $(var arm_path)')" type="str" />
+    </node>
+
+    <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" output="screen" />
+
+    <node pkg="rviz2" exec="rviz2" output="screen" args="-d $(var rviz_config_path)" />
+
+</launch>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="common_properties.xacro" />
+
+    <xacro:include filename="mobile_base.xacro" />
+
+    <xacro:include filename="arm_mobile_base.xacro" />
+    
+    <xacro:include filename="mobile_base_plugin.xacro" />
+
+    <xacro:include filename="camera.xacro" />
+
+    <xacro:include filename="LiDAR.xacro" />
+
+    <joint name="mobile_base_arm_joint" type="fixed">  
+        <parent link="base_link" />
+        <child link="arm_base_link" />
+        <origin xyz="0 ${base_length / 4} ${base_height}" rpy="0 0 0" />
+    </joint>
+
+    <joint name="laser_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="laser_link"/>
+        <origin xyz="0 ${base_length / 2} ${base_height}" rpy="0 0 0"/>
+    </joint>
+
+</robot>
