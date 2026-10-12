@@ -11,11 +11,11 @@
                 <cylinder radius="${lidar_radius}" length="${lidar_length}"/>
             </geometry>
             <material name="grey"/>
-            <origin xyz="0 ${-lidar_radius} ${lidar_length / 2}" rpy="0 0 0" />
+            <origin xyz="${-lidar_radius} 0 ${lidar_length / 2}" rpy="0 0 0" />
         </visual>
 
         <xacro:cylinder_inertia m="0.1" r="${lidar_radius}" l="${lidar_length}"
-                    o_xyz="0 ${-lidar_radius} ${lidar_length / 2}" o_rpy="0 0 0"/>
+                    o_xyz="${-lidar_radius} 0 ${lidar_length / 2}" o_rpy="0 0 0"/>
     </link>
 
     <gazebo reference="laser_link">
@@ -24,7 +24,7 @@
 
             <topic>/scan</topic>
 
-            <pose>0 0 0 0 0 ${pi/2}</pose>
+            <pose>0 0 0 0 0 0</pose>
             
             <update_rate>10</update_rate>
             

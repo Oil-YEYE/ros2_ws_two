@@ -48,7 +48,7 @@ class AvoidNode(Node):
             elif front_angle > 0:
                 cmd.angular.z = math.pi / 2
         else:
-            cmd.linear.x = -0.3
+            cmd.linear.x = 0.3
 
         self.cmd_pub.publish(cmd)
         
